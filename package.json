@@ -1,5 +1,5 @@
 {
-  "name": "data-annotation-agent-monorepo",
+  "name": "vtax",
   "private": true,
   "version": "0.1.0",
   "workspaces": [

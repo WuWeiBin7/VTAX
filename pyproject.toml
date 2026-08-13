@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "data-annotation-agent"
+name = "vtax"
 version = "0.1.0"
-description = "LangChain and Qwen based object detection annotation agent."
+description = "Industrial video annotation, dataset preparation, YOLO training, and model export platform."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -24,7 +24,7 @@ test = [
 ]
 
 [project.scripts]
-data-annotation-agent = "data_annotation_agent.cli:main"
+vtax-annotate = "data_annotation_agent.cli:main"
 vtax-api = "data_annotation_agent.vtax.api:main"
 
 [tool.pytest.ini_options]
