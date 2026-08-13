@@ -1,0 +1,19 @@
+[Unit]
+Description=VTAX Next.js web workspace
+After=network-online.target vtax-worker.service
+Wants=network-online.target vtax-worker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/root/WWB/VTAX/Data_Annotation_Agent
+EnvironmentFile=/root/WWB/VTAX/.env.vtax
+# Listen on the server interface so trusted network clients can reach the web UI.
+ExecStart=/usr/bin/npm run start -w web -- --hostname 0.0.0.0 --port ${VTAX_WEB_PORT}
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+KillMode=control-group
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

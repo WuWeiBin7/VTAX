@@ -1,0 +1,18 @@
+[Unit]
+Description=VTAX FastAPI workflow worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/WWB/VTAX/Data_Annotation_Agent
+EnvironmentFile=/root/WWB/VTAX/.env.vtax
+ExecStart=/root/miniconda3/envs/vtax/bin/python -m data_annotation_agent.vtax.api
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+KillMode=control-group
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

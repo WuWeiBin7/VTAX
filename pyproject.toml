@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data-annotation-agent"
+version = "0.1.0"
+description = "LangChain and Qwen based object detection annotation agent."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115.0,<1.0.0",
+    "langchain>=1.0.0,<2.0.0",
+    "langchain-openai>=1.0.0,<2.0.0",
+    "openai>=2.0.0,<3.0.0",
+    "pillow>=10.0.0",
+    "pydantic>=2.7.0,<3.0.0",
+    "uvicorn[standard]>=0.34.0,<1.0.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+data-annotation-agent = "data_annotation_agent.cli:main"
+vtax-api = "data_annotation_agent.vtax.api:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.setuptools.packages.find]
+include = ["data_annotation_agent*"]
